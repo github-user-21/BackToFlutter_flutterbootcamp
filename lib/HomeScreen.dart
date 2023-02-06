@@ -166,7 +166,7 @@ class HomePage extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
                         children: [
-                          Center(child: Text('Education',style: TextStyle(fontSize: 15,fontWeight: FontWeight.w800),)),
+                          Center(child: Text('Education',style: TextStyle(fontSize: 15,fontWeight: FontWeight.w800),),),
                           Divider(
                               thickness: 1,
                               color: Colors.black
@@ -260,6 +260,9 @@ class HomePage extends StatelessWidget {
                       thickness: 1,
                       color: Colors.white
                   ),
+                  Container(
+                    child: SnackBarPage(),
+                  ),
                 ],
               ),
             ),
@@ -269,6 +272,30 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+class SnackBarPage extends StatelessWidget {
+  const SnackBarPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ElevatedButton(
+        onPressed: () {
+          final snackBar = SnackBar(
+            content: const Text('coming soon...'),
+            action: SnackBarAction(
+              label: '↩',
+              onPressed: () {
+              },
+            ),
+          );
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        },
+        child: const Text('view more'),
+      ),
+    );
+  }
+}
+
 // Card(
 //   color: Colors.white,
 //   margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 20.0),
